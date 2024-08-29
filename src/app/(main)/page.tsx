@@ -9,10 +9,8 @@ export default async function Home() {
     redirect("/api/auth/signin");
   }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <div className="w-full h-screen">
+    <main className="flex h-screen w-full flex-col items-center justify-between">
         <VideoPlayer/>
-      </div>
     </main>
   );
 }

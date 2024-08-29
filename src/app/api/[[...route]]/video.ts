@@ -24,6 +24,7 @@ const app=new Hono()
     if(user.length==0){
         return c.json({error:"user not found"},404);
     }
+    console.log(user);
     if(!user[0].isPremium){
         return c.json({error:"user is not premium"},403);
     }
@@ -32,6 +33,7 @@ const app=new Hono()
     const signedUrl=signStreamURL(iFrameURL,process.env.BUNNYCDN_TOKEN!);
     if(!signedUrl)
         return c.json({error:"error in signing url"},400);
+    console.log(signedUrl);
     return c.json({data:signedUrl},200);
 }
 )

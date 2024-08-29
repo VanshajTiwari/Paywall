@@ -14,11 +14,13 @@ export const useSignedUrl=(iFrameURL:string)=>{
                     iFrameUrl:iFrameURL
                 }
             });
+            // console.log(response);
             if(!response.ok){
                 throw new Error(response.statusText);
             }
             const data=await response.json();
-            return await data.data;
+            // console.log(data);
+            return data.data;
         }
     });
     console.log(query);

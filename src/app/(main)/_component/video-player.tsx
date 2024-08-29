@@ -10,13 +10,13 @@ export default function VideoPlayer(){
     console.log({isError,isSignedUrlError});
     console.log({isPremium,signedUrl,error});
     if(isPending || isSingedUrlPending){
-        return <div className="flex justify-center items-center text-[20px]">Loading...</div>
+        return <div className="w-full h-full flex justify-center items-center text-[20px]">Loading...</div>
     }
-    if(isError || isSignedUrlError){
-        return <div className="flex justify-center items-center text-[20px] text-red-500 font-bold">Error Found</div>
+    if(isError){
+        return <div className="w-full h-full flex justify-center items-center text-[20px] text-red-500 font-bold">Error Found</div>
     }
-    if(!isPremium || !signedUrl){
-        return <div className="flex justify-center items-center text-[20px]">
+    if(!isPremium && !isSignedUrlError){
+        return <div className="w-full h-full flex flex-col justify-center items-center text-[20px]">
             <span>Upgrade to premium to watch this video</span>
             <div className="bg-black px-3 py-2 text-white rounded-md ml-4"><Upgrade/></div>
         </div>
